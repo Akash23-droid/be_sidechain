@@ -4,7 +4,7 @@ const mammoth = require("mammoth");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 require("dotenv").config();
 
-const GOOGLE_GEMINI_API_KEY = process.env.GOOGLE_GEMINI_API_KEY;
+const GOOGLE_GEMINI_API_KEY = "AIzaSyBB54gtuBwb3Sn8PsVJQgSckJL0OvWjq2I";
 const genAI = new GoogleGenerativeAI(GOOGLE_GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
