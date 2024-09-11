@@ -5,13 +5,21 @@ const resumeRoutes = require("../routes/resumeRoutes");
 const app = express();
 
 // Enable CORS for all routes
-app.use(cors());
+// app.use(cors());
 
-// cors origin setup
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+// // cors origin setup
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   next();
+// });
+
+// Enable CORS for all routes with a wildcard, or define specific origins for production
+const corsOptions = {
+  origin: "*", // In production, it's better to whitelist specific domains for security
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+app.use(cors(corsOptions));
 
 // Use resume routes
 app.use("/", resumeRoutes);
